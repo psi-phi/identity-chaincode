@@ -1,0 +1,6 @@
+# IntelliJ Files
+.idea/
+*.iml
+
+# OS Specific Files
+.DS_Store
