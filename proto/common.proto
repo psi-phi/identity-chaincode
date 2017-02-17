@@ -1,0 +1,26 @@
+// Version = 1.0
+syntax = "proto3";
+
+package identity.proto;
+
+option java_package = "com.psiphiglobal.identity.proto";
+option java_outer_classname = "Common";
+
+option go_package = "identity";
+
+message PublicKey {
+    Algorithm algorithm = 1;
+    bytes data = 2;
+
+    enum Algorithm {
+        UNKNOWN = 0;
+        RSA = 1;
+        ECDSA = 2;
+    }
+}
+
+message Signature {
+    string signer_cert_id = 1;
+    bytes data = 2;
+    uint64 timestamp = 3;
+}
