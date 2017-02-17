@@ -1,11 +1,11 @@
 package main
 
 import (
-	"github.com/hyperledger/fabric/core/chaincode/shim"
 	"encoding/base64"
-	"github.com/psi-phi/identity-chaincode/identity"
-	"github.com/golang/protobuf/proto"
 	"encoding/json"
+	"github.com/golang/protobuf/proto"
+	"github.com/hyperledger/fabric/core/chaincode/shim"
+	"github.com/psi-phi/identity-chaincode/identity"
 )
 
 /* ------------------------------------------------------------------------------------------------------------------
@@ -18,7 +18,6 @@ func getOrgKey(domainName string) string {
 func getCertKey(certId string) string {
 	return KEY_PREFIX_CERTIFICATE + certId
 }
-
 
 /* ------------------------------------------------------------------------------------------------------------------
    VERSION
@@ -41,7 +40,6 @@ func getVersion(stub shim.ChaincodeStubInterface) ([]byte, error) {
 	}
 	return val, nil
 }
-
 
 /* ------------------------------------------------------------------------------------------------------------------
    ORGANIZATION CERTIFICATES

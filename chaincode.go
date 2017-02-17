@@ -2,12 +2,11 @@ package main
 
 import (
 	"github.com/hyperledger/fabric/core/chaincode/shim"
-	"os"
 	"log"
+	"os"
 )
 
-var logger = log.New(os.Stdout, "", log.Ldate | log.Ltime | log.LUTC)
-
+var logger = log.New(os.Stdout, "", log.Ldate|log.Ltime|log.LUTC)
 
 func main() {
 	err := shim.Start(new(Chaincode))
@@ -35,7 +34,7 @@ func (t *Chaincode) Invoke(stub shim.ChaincodeStubInterface, function string, ar
 func (t *Chaincode) Query(stub shim.ChaincodeStubInterface, function string, args []string) ([]byte, error) {
 	switch function {
 	case FUNC_GET_VERSION:
-		return getVersion(stub);
+		return getVersion(stub)
 	case FUNC_GET_CERT:
 		return getOrganizationCertificate(stub, args)
 	default:
