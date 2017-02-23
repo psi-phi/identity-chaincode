@@ -2,5 +2,8 @@
 .idea/
 *.iml
 
+# Build
+identity-chaincode
+
 # OS Specific Files
 .DS_Store

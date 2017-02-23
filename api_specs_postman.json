@@ -1,0 +1,131 @@
+{
+	"variables": [],
+	"info": {
+		"name": "Identity Chaincode",
+		"_postman_id": "45b6fe0a-bc16-bc75-d0b4-fd62762fe674",
+		"description": "",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Deploy",
+			"request": {
+				"url": "http://localhost:7050/chaincode",
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"jsonrpc\": \"2.0\",\n  \"method\": \"deploy\",\n  \"params\": {\n    \"type\": 1,\n    \"chaincodeID\":{\n        \"name\": \"identity\"\n    },\n    \"ctorMsg\": {\n        \"args\":[\"init\"]\n    }\n  },\n  \"id\": 1\n}"
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "Get Version",
+			"request": {
+				"url": "http://localhost:7050/chaincode",
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"jsonrpc\": \"2.0\",\n  \"method\": \"query\",\n  \"params\": {\n    \"type\": 1,\n    \"chaincodeID\":{\n        \"name\": \"identity\"\n    },\n    \"ctorMsg\": {\n        \"args\":[\"get_version\"]\n    }\n  },\n  \"id\": 1\n}"
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "Put Certificate",
+			"request": {
+				"url": "http://localhost:7050/chaincode",
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"jsonrpc\": \"2.0\",\n  \"method\": \"invoke\",\n  \"params\": {\n    \"type\": 1,\n    \"chaincodeID\":{\n        \"name\": \"identity\"\n    },\n    \"ctorMsg\": {\n        \"args\":[\n        \t\"put_cert\", \n        \t\"CisxeHBBMjVqbHZLOTIwTzVkQ1FWUzR6bHpCd3g4NjFzeHV3cFlXZk9QdVRVGMXauMUFKAIy9QEKDHBzaXBoaS5jby5pbhI7CiJQc2kgUGhpIEdsb2JhbCBTb2x1dGlvbnMgUHZ0LiBMdGQuEhFpbmZvQHBzaXBoaS5jby5pbhoCSU4apwEIARKiATCBnzANBgkqhkiG9w0BAQEFAAOBjQAwgYkCgYEApZTdIUwi7GIQbgcnTiCjE4zpjXGnpElMRPZJG5Fhfh3rGCvZ6eiHMh+Z80JTlNLcB1XWdgZru6n/K4WeSaCIaXCaV2POTdEmQ6ctyr5xfQ5qV9ZoPhbxIRI0wPYsZ65OV+skbqd5Xv+sdLTsw+k3GuA5hgiNMBcvh4KDg4PNji0CAwEAATq2AQorMXhwQTI1amx2SzkyME81ZENRVlM0emx6Qnd4ODYxc3h1d3BZV2ZPUHVUVRKAAQJ6edfjNX2eR1VPlpw+oykiTXTp6+FkEYPw15TFaLi1tHRdX/YcWGLgcpqWUs0Y/RJfqDcCfIZwvHa/wn/4u3d+ZL0qFdBM9d/PaFN/x+O8WMiza/mrGmeDDf436ymtLHNqV18eJt9gCXa7UeQB9HXW/7ppWBjILeu1xJQNNLh1GMXauMUF\"\n        \t]\n    }\n  },\n  \"id\": 1\n}"
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "Get Certificate",
+			"request": {
+				"url": "http://localhost:7050/chaincode",
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"jsonrpc\": \"2.0\",\n  \"method\": \"query\",\n  \"params\": {\n    \"type\": 1,\n    \"chaincodeID\":{\n        \"name\": \"identity\"\n    },\n    \"ctorMsg\": {\n        \"args\":[\n        \t\"get_cert\", \n        \t\"1xpA25jlvK920O5dCQVS4zlzBwx861sxuwpYWfOPuTU\"\n        \t]\n    }\n  },\n  \"id\": 1\n}"
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "Get Primary Certificate",
+			"request": {
+				"url": "http://localhost:7050/chaincode",
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"jsonrpc\": \"2.0\",\n  \"method\": \"query\",\n  \"params\": {\n    \"type\": 1,\n    \"chaincodeID\":{\n        \"name\": \"identity\"\n    },\n    \"ctorMsg\": {\n        \"args\":[\n        \t\"get_primary_cert\", \n        \t\"psiphi.co.in\"\n        \t]\n    }\n  },\n  \"id\": 1\n}"
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "Verify Signature",
+			"request": {
+				"url": "http://localhost:7050/chaincode",
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"jsonrpc\": \"2.0\",\n  \"method\": \"query\",\n  \"params\": {\n    \"type\": 1,\n    \"chaincodeID\":{\n        \"name\": \"identity\"\n    },\n    \"ctorMsg\": {\n        \"args\":[\n        \t\"verify_sign\",\n        \t\"LPJNul+wow4m6DsqxbninhsWHlwfp0JecwQzYpOLmCQ=\",\n        \t\"CisxeHBBMjVqbHZLOTIwTzVkQ1FWUzR6bHpCd3g4NjFzeHV3cFlXZk9QdVRVEoABoYjpjh0GVYUVIF3DFhLDQWOeJZ8vuctphWBbXGxlxKjBUy0Q2nF0ThrGNjWCHVg6CyJsvtwNqQRPq7DEXTGM2nlwxW9GfaE5DKsAWqy3UcqIxuOAt1R16Mp7PzM0PSYn6692KkZyUPxHwtlCDrE06dbWbLuiQ+h6DqxXu5gRt3EYlIm5xQU=\"\n        \t]\n    }\n  },\n  \"id\": 1\n}"
+				},
+				"description": ""
+			},
+			"response": []
+		}
+	]
+}

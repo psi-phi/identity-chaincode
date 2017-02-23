@@ -12,9 +12,10 @@ import "common.proto";
 
 message Organization {
     string domain_name = 1;
-    repeated SignedCertificate active_certs = 2;
-    repeated SignedCertificate expired_certs = 3;
-    repeated SignedCertificate blocked_certs = 4;
+    string primary_cert_id = 2;
+    repeated SignedCertificate active_certs = 3;
+    repeated SignedCertificate expired_certs = 4;
+    repeated SignedCertificate blocked_certs = 5;
 }
 
 message SignedCertificate {

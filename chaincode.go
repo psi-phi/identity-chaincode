@@ -24,8 +24,10 @@ func (t *Chaincode) Init(stub shim.ChaincodeStubInterface, function string, args
 
 func (t *Chaincode) Invoke(stub shim.ChaincodeStubInterface, function string, args []string) ([]byte, error) {
 	switch function {
+
 	case FUNC_PUT_CERT:
-		return putOrganizationCertificate(stub, args)
+		return putCertificate(stub, args)
+
 	default:
 		return nil, ERR_INVALID_FUNC
 	}
@@ -33,10 +35,19 @@ func (t *Chaincode) Invoke(stub shim.ChaincodeStubInterface, function string, ar
 
 func (t *Chaincode) Query(stub shim.ChaincodeStubInterface, function string, args []string) ([]byte, error) {
 	switch function {
+
 	case FUNC_GET_VERSION:
 		return getVersion(stub)
+
 	case FUNC_GET_CERT:
-		return getOrganizationCertificate(stub, args)
+		return getCertificate(stub, args)
+
+	case FUNC_GET_PRIMARY_CERT:
+		return getPrimaryCertificate(stub, args)
+
+	case FUNC_VERIFY_SIGN:
+		return verifySignature(stub, args)
+
 	default:
 		return nil, ERR_INVALID_FUNC
 	}
