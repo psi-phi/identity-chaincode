@@ -196,11 +196,12 @@ func getCertificate(stub shim.ChaincodeStubInterface, args []string) ([]byte, er
 	}
 
 	if cert != nil {
-		certData, err := json.Marshal(cert)
+		certData, err := proto.Marshal(cert)
 		if err != nil {
 			return nil, err
 		}
-		return certData, nil
+		encodedCertData := base64.StdEncoding.EncodeToString(certData)
+		return []byte(encodedCertData), nil
 	}
 
 	return nil, nil
@@ -237,11 +238,12 @@ func getPrimaryCertificate(stub shim.ChaincodeStubInterface, args []string) ([]b
 
 	cert := org.FindCert(org.PrimaryCertId)
 	if cert != nil {
-		certData, err := json.Marshal(cert)
+		certData, err := proto.Marshal(cert)
 		if err != nil {
 			return nil, err
 		}
-		return certData, nil
+		encodedCertData := base64.StdEncoding.EncodeToString(certData)
+		return []byte(encodedCertData), nil
 	}
 
 	return nil, ERR_INVALID_CERT_ID
