@@ -9,6 +9,8 @@ const (
 	FUNC_GET_CERT         = "get_cert"
 	FUNC_GET_PRIMARY_CERT = "get_primary_cert"
 	FUNC_VERIFY_SIGN      = "verify_sign"
+	FUNC_GET_CERT_STATUS  = "get_cert_status"
+	FUNC_GET_ROLE         = "get_role"
 
 	FUNC_PUT_CERT       = "put_cert"
 	FUNC_ADD_VALIDATION = "add_validation"

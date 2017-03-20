@@ -48,6 +48,12 @@ func (t *Chaincode) Query(stub shim.ChaincodeStubInterface, function string, arg
 	case FUNC_VERIFY_SIGN:
 		return verifySignature(stub, args)
 
+	case FUNC_GET_CERT_STATUS:
+		return getCeritificateStatus(stub, args)
+
+	case FUNC_GET_ROLE:
+		return getRole(stub, args)
+
 	default:
 		return nil, ERR_INVALID_FUNC
 	}

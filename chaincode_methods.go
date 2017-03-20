@@ -207,6 +207,44 @@ func getCertificate(stub shim.ChaincodeStubInterface, args []string) ([]byte, er
 	return nil, nil
 }
 
+func getCeritificateStatus(stub shim.ChaincodeStubInterface, args []string) ([]byte, error) {
+	if len(args) != 1 {
+		return nil, ERR_INVALID_ARG_COUNT
+	}
+
+	certId := args[0]
+	cert, err := getCertificateFromId(stub, certId)
+	if err != nil {
+		return nil, err
+	}
+
+	if cert != nil {
+		status := cert.Status.String()
+		return []byte(status), nil
+	}
+
+	return nil, nil
+}
+
+func getRole(stub shim.ChaincodeStubInterface, args []string) ([]byte, error) {
+	if len(args) != 1 {
+		return nil, ERR_INVALID_ARG_COUNT
+	}
+
+	certId := args[0]
+	cert, err := getCertificateFromId(stub, certId)
+	if err != nil {
+		return nil, err
+	}
+
+	if cert != nil {
+		role := cert.Data.Role.String()
+		return []byte(role), nil
+	}
+
+	return nil, nil
+}
+
 func addValidation(stub shim.ChaincodeStubInterface, args []string) ([]byte, error) {
 	// TODO : Implement this
 	return nil, nil

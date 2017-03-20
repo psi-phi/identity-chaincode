@@ -1,14 +1,14 @@
 package identity
 
 import (
-	validator "github.com/asaskevich/govalidator"
-	"crypto/x509"
-	"crypto/rsa"
 	"crypto"
+	"crypto/rsa"
+	"crypto/sha256"
+	"crypto/x509"
+	"encoding/base64"
+	validator "github.com/asaskevich/govalidator"
 	"net"
 	"strings"
-	"crypto/sha256"
-	"encoding/base64"
 )
 
 //var logger = log.New(os.Stdout, "", log.Ldate | log.Ltime | log.LUTC)
