@@ -1,13 +1,13 @@
 package main
 
 import (
-	"bitbucket.org/psi-phi/two-factor-auth-chaincode/lib"
 	"encoding/base64"
 	"encoding/json"
+	"strconv"
+
 	"github.com/golang/protobuf/proto"
 	"github.com/hyperledger/fabric/core/chaincode/shim"
 	"github.com/psi-phi/identity-chaincode/identity"
-	"strconv"
 )
 
 /* ------------------------------------------------------------------------------------------------------------------
@@ -290,7 +290,7 @@ func getPrimaryCertificate(stub shim.ChaincodeStubInterface, args []string) ([]b
 func verifySignature(stub shim.ChaincodeStubInterface, args []string) ([]byte, error) {
 	// Parse Input
 	if len(args) != 2 {
-		return nil, lib.ERR_INCORRECT_ARGS
+		return nil, ERR_INVALID_ARG_COUNT
 	}
 
 	encodedMsgHash := args[0]
